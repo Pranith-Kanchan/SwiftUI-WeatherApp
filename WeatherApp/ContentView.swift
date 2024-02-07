@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: isDark ? [.black, .white] : [.blue, .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                           .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             VStack{
               
                 Text("Manglore")
@@ -27,12 +27,11 @@ struct ContentView: View {
                 HStack{
                     
                     WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.fill", degree: "43°")
-                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.fill", degree: "74°")
-                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.fill", degree: "50°")
+                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.bolt.fill", degree: "74°")
+                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "sun.snow.fill", degree: "50°")
                     WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.fill", degree: "66°")
-                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "cloud.sun.fill", degree: "20°")
+                    WeatherDayView(dayOfWeek: "Mon", imageOfWeath: "sun.horizon.fill", degree: "20°")
                 }
-                
                 
                 Spacer()
                 
@@ -42,12 +41,12 @@ struct ContentView: View {
                 {
                     Text("Change the mode")
                         .font(.system(size: 20,weight: .bold))
+                    
                         .frame(width: 300,height: 55)
-                        .background(.white)
+                        .background(.white.gradient)
                         .cornerRadius(10)
                         .padding()
                 }
-                                
             }
         }
     }
@@ -74,7 +73,7 @@ struct WeatherDayView: View {
                 .font(.system(size: 20,weight: .bold, design: .default))
                 .foregroundColor(.white)
             Text(degree)
-                .font(.system(size: 30,weight: .bold, design: .default))
+                .font(.system(size: 20,weight: .bold, design: .default))
                 .foregroundColor(.white)
         }
     }
